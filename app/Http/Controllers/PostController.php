@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use APP\Models\Post;
+
 
 class PostController extends Controller
 {
@@ -12,6 +16,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        return $request;
+        Article::create(['title' => $request->input('title'), 'content' => $request->input('content')]);
+        return "Success";
     }
 }
